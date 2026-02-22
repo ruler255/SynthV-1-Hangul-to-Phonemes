@@ -1,14 +1,14 @@
 // ============================================================
-//  Hangul Phoneme Converter for SynthV Studio 1.11+
+//  Hangul Phoneme Converter for SynthV Studio 1.10+
 //  Converts Hangul lyrics to X-SAMPA phonemes and applies
 //  duration/strength attributes per the provided mapping rules.
 // ============================================================
 function getClientInfo() {
   return {
-    name:             "Hangul Phoneme Converter",
+    name:             "Hangul Phoneme Converter A test",
     category:         "",
     author:           "",
-    versionNumber:    2.0,
+    versionNumber:    1.8,
     minEditorVersion: 0x010B00   // SynthV Studio 1.11.0
   };
 }
@@ -57,7 +57,7 @@ var JUNGSEONG_MAP = [
   ["o"],             // 8  ㅗ
   ["ua"],            // 9  ㅘ
   ["yE"],            // 10 ㅙ
-  [""],            // 11 ㅚ
+  ["ue"],            // 11 ㅚ
   ["j", "o"],        // 12 ㅛ
   ["u"],             // 13 ㅜ
   ["w", "7"],        // 14 ㅝ
@@ -381,7 +381,7 @@ function processNotesWithLiaison(notes, hieutDeletion, eoVowel) {
     var firstVowelToken = next.tokens[0];
     if (firstVowelToken.role !== "vowel") continue;
     // Don't liaise into glide-initial vowels — their leading w/j acts as onset
-    if (firstVowelToken.token === "w" || firstVowelToken.token === "j") continue;
+    if (firstVowelToken.token === "w" || firstVowelToken.token === "j" || firstVowelToken.token === "y") continue;
 
     var jamo = lastTok.jamo;
     var initialTokens = [];
@@ -632,4 +632,3 @@ if (notes.length === 0) {
     });
   });
 }
-
