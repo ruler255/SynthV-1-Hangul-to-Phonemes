@@ -1,11 +1,6 @@
 # SynthV-1-Hangul-to-Phonemes
 A script to convert Korean Hangul lyrics into Mandarin X-SAMPA phonemes in Synthesizer V Studio 1.
-
-Demonstration
-<audio controls>
-  <source src="https://github.com/user-attachments/files/25466633/Demo.wav" type="audio/wav">
-  Your browser does not support the audio element.
-</audio>
+Video and audio demonstrations provided.
 
 ## Requirements
 - Synthesizer V Studio 1.11.0 or later
