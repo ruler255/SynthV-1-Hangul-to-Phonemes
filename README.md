@@ -26,7 +26,7 @@ Demo:<br>
 3. Type or paste the Korean characters directly into the lyric field. SynthV accepts Hangul natively
 4. Select the notes you want to convert
 5. Go to the Scripts menu and click **Hangul Phoneme Converter**
-6. You will be prompted whether to enable ㅎ (hieut) deletion — examples are provided in the dialog. OK = Yes, Cancel = No
+6. You will be prompted whether to enable ㅎ (hieut) deletion and whether to use `A` or `7` — examples are provided in the dialog.
 7. Done. You may need one or two small manual tweaks afterward, but that's it
 
 ## Limitations
