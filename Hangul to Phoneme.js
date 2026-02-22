@@ -1,11 +1,11 @@
 // ============================================================
-//  Hangul Phoneme Converter for SynthV Studio 1.10+
+//  Hangul Phoneme Converter for SynthV Studio 1.11+
 //  Converts Hangul lyrics to X-SAMPA phonemes and applies
 //  duration/strength attributes per the provided mapping rules.
 // ============================================================
 function getClientInfo() {
   return {
-    name:             "Hangul Phoneme Converter A test",
+    name:             "Hangul Phoneme Converter",
     category:         "",
     author:           "",
     versionNumber:    1.8,
@@ -632,3 +632,4 @@ if (notes.length === 0) {
     });
   });
 }
+
