@@ -25,7 +25,7 @@ var CHOSEONG_MAP = [
   ["n"],       // 2  ㄴ
   ["t"],       // 3  ㄷ
   ["t", "t"],     // 4  ㄸ
-  ["l"],       // 5  ㄹ   (flap; SynthV uses "l" or "r\`"? We'll keep "l" for now)
+  ["l"],       // 5  ㄹ   (flap)
   ["m"],       // 6  ㅁ
   ["p"],       // 7  ㅂ
   ["p", "p"],     // 8  ㅃ
@@ -33,7 +33,7 @@ var CHOSEONG_MAP = [
   ["s", "s"],     // 10 ㅆ
   [],          // 11 ㅇ  (silent)
   ["ts\\"],    // 12 ㅈ
-  ["ts\\", "ts\\"],  // 13 ㅉ   (fortis affricate – adjust if your voice bank uses a different symbol)
+  ["ts\\", "ts\\"],  // 13 ㅉ   (fortis affricate)
   ["ts\\h"],   // 14 ㅊ
   ["kh"],      // 15 ㅋ
   ["th"],      // 16 ㅌ
@@ -52,17 +52,17 @@ var JUNGSEONG_MAP = [
   ["j", "7"],        // 6  ㅕ
   ["j", "e"],        // 7  ㅖ
   ["o"],             // 8  ㅗ
-  ["ua"],        // 9  ㅘ   (w + a)
-  ["yE"],        // 10 ㅙ
-  ["ue"],        // 11 ㅚ   (or "o i"? We'll use "w e")
+  ["ua"],            // 9  ㅘ
+  ["yE"],            // 10 ㅙ
+  ["ue"],            // 11 ㅚ 
   ["j", "o"],        // 12 ㅛ
   ["u"],             // 13 ㅜ
-  ["w", "7"],        // 14 ㅝ   (w + 7)
+  ["w", "7"],        // 14 ㅝ
   ["w", "e"],        // 15 ㅞ
   ["w", "i"],        // 16 ㅟ
   ["j", "u"],        // 17 ㅠ
   ["i\\"],           // 18 ㅡ
-  ["ie"],      // 19 ㅢ
+  ["ie"],            // 19 ㅢ
   ["i"],             // 20 ㅣ
 ];
 
@@ -687,3 +687,4 @@ function main() {
   );
 
 }
+
