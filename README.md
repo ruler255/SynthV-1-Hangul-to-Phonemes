@@ -30,8 +30,8 @@ Demo:<br>
 7. Done. You may need one or two small manual tweaks afterward, but that's it
 
 ## Limitations
-- Mandarin X-SAMPA has no equivalent for eo (ㅓ). The closest approximation, `7`, is slightly too dark. This is a constraint of the phoneme set and cannot be worked around.<br>
-- There is also no equivalent for rieul (ㄹ). ` r\`` ` [with only one backtick] is slightly too rhotic, but this generally does not pose any issues.
+- Mandarin X-SAMPA has no equivalent for eo (ㅓ). The closest approximation, `7`, is slightly too dark. This is a constraint of the phoneme set. A new feature implemented allows you to choose between `A` and `7` depending on what works best for the voicebank. Generally, `A` sounds more realistic. <br>
+- There is also no equivalent for rieul (ㄹ). ` r\`` ` [with only one backtick] is slightly too rhotic, so it was revised to ` z`` ` [again, only one backtick] but this generally does not pose any issues.
 - This is **not** a replacement for native Korean synthesis (e.g. Synthesizer V 2). If something sounds off, it is fundamentally a limitation of approximating Korean with Mandarin phonemes, not an issue with the script.
 - Only tested with more recent AI voicebanks. Confirmed working well with: **Mai, Haiyi AI, Stardust, Popy AI, Noa Hex**. Older voicebanks may produce poor results.
 
