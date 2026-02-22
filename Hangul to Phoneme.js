@@ -5,10 +5,10 @@
 // ============================================================
 function getClientInfo() {
   return {
-    name:             "Hangul Phoneme Converter A test",
+    name:             "Hangul Phoneme Converter",
     category:         "",
     author:           "",
-    versionNumber:    1.8,
+    versionNumber:    2.0,
     minEditorVersion: 0x010B00   // SynthV Studio 1.11.0
   };
 }
@@ -632,3 +632,4 @@ if (notes.length === 0) {
     });
   });
 }
+
