@@ -8,6 +8,9 @@ Demo:<br>
 - Synthesizer V Studio 1.11.0 or later
 - A Mandarin Chinese voicebank (native Mandarin will sound significantly better, but any voicebank will work)
 
+## Known Issue
+The script **does work**. It initially throws a "ReferenceError: identifier 'getClientInfo' undefined", but works after that point. I am working on a solution.
+
 ## Features
 - Full Hangul decomposition with all 19 initials, 21 vowels, and 28 finals
 - Liaison (연음) with complex coda splitting
