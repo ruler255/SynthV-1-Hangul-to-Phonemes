@@ -22,16 +22,16 @@ var EIGHTH  = QUARTER / 2;
 
 var CHOSEONG_MAP = [
   ["k"],       // 0  ㄱ
-  ["k", "k"],     // 1  ㄲ
+  ["cl", "k"],     // 1  ㄲ
   ["n"],       // 2  ㄴ
   ["t"],       // 3  ㄷ
-  ["t", "t"],     // 4  ㄸ
+  ["cl", "t"],     // 4  ㄸ
   ["l"],       // 5  ㄹ   (flap; SynthV uses "l" or "r\`"? We'll keep "l" for now)
   ["m"],       // 6  ㅁ
   ["p"],       // 7  ㅂ
-  ["p", "p"],     // 8  ㅃ
+  ["cl", "p"],     // 8  ㅃ
   ["s"],       // 9  ㅅ
-  ["s", "s"],     // 10 ㅆ
+  ["cl", "s"],     // 10 ㅆ
   [],          // 11 ㅇ  (silent)
   ["ts\\"],    // 12 ㅈ
   ["ts\\", "ts\\"],  // 13 ㅉ
@@ -56,12 +56,12 @@ var JUNGSEONG_MAP = [
   ["j", "e"],        // 7  ㅖ
   ["o"],             // 8  ㅗ
   ["ua"],            // 9  ㅘ
-  ["yE"],            // 10 ㅙ
+  ["w", "yE"],            // 10 ㅙ
   ["ue"],            // 11 ㅚ
   ["j", "o"],        // 12 ㅛ
   ["u"],             // 13 ㅜ
-  ["w", "7"],        // 14 ㅝ
-  ["w", "e"],        // 15 ㅞ
+  ["w", "ua"],        // 14 ㅝ
+  ["w", "yE"],        // 15 ㅞ
   ["y", ":\\i"],        // 16 ㅟ
   ["j", "u"],        // 17 ㅠ
   ["i\\"],           // 18 ㅡ
@@ -272,7 +272,7 @@ function applyPhonologicalRulesBetweenNotes(noteData, hieutDeletion) {
     var lastJamo  = lastTok.jamo;
     var firstJamo = firstTok.jamo;
 
-    // --- Nasalization ---
+  // --- Nasalization ---
     var nasalizationMap = {
       "ㄱ": "ㅇ", "ㄲ": "ㅇ", "ㅋ": "ㅇ", "ㄳ": "ㅇ", "ㄺ": "ㅇ",
       "ㄷ": "ㄴ", "ㄸ": "ㄴ", "ㅌ": "ㄴ", "ㅅ": "ㄴ", "ㅆ": "ㄴ",
@@ -289,14 +289,14 @@ function applyPhonologicalRulesBetweenNotes(noteData, hieutDeletion) {
       continue;
     }
 
-    // --- Aspiration ---
+  // --- Aspiration ---
     var aspirationMap = {
       "ㄱ": "ㅋ", "ㄲ": "ㅋ", "ㅋ": "ㅋ",
       "ㄷ": "ㅌ", "ㄸ": "ㅌ", "ㅌ": "ㅌ",
       "ㅂ": "ㅍ", "ㅃ": "ㅍ", "ㅍ": "ㅍ"
     };
 
-    // Case 1: final ㅎ + initial stop → aspirated initial, delete ㅎ
+  // Case 1: final ㅎ + initial stop → aspirated initial, delete ㅎ
     if (lastJamo === "ㅎ" && aspirationMap[firstJamo]) {
       var newJamo = aspirationMap[firstJamo];
       var newPhonemes = getPhoneme(newJamo, "initial");
@@ -308,7 +308,7 @@ function applyPhonologicalRulesBetweenNotes(noteData, hieutDeletion) {
       continue;
     }
 
-    // Case 2: final stop + initial ㅎ → aspirated initial, delete final stop
+  // Case 2: final stop + initial ㅎ → aspirated initial, delete final stop
     if (aspirationMap[lastJamo] && firstJamo === "ㅎ") {
       var newJamo = aspirationMap[lastJamo];
       var newPhonemes = getPhoneme(newJamo, "initial");
@@ -320,28 +320,40 @@ function applyPhonologicalRulesBetweenNotes(noteData, hieutDeletion) {
       continue;
     }
 
-    // --- Tensification ---
-    var plainToFortis = {
-      "ㄱ": "ㄲ", "ㄷ": "ㄸ", "ㅂ": "ㅃ", "ㅅ": "ㅆ", "ㅈ": "ㅉ"
-    };
-    var stopSet = {
-      "ㄱ":1, "ㄲ":1, "ㅋ":1, "ㄳ":1, "ㄺ":1,
-      "ㄷ":1, "ㄸ":1, "ㅌ":1,
-      "ㅂ":1, "ㅃ":1, "ㅍ":1, "ㅄ":1, "ㄿ":1,
-      "ㅅ":1, "ㅆ":1,
-      "ㅈ":1, "ㅉ":1, "ㅊ":1,
-      "ㅎ":1
-    };
-    if (stopSet[lastJamo] && plainToFortis[firstJamo]) {
-      var newJamo = plainToFortis[firstJamo];
-      var newPhonemes = getPhoneme(newJamo, "initial");
-      if (newPhonemes.length > 0) {
-        firstTok.token = newPhonemes[0];
-        firstTok.jamo  = newJamo;
-      }
-    }
+  // --- Tensification ---
+  //commented out tensification since it creates issues with certain consonant clusters and isn't as perceptible in singing as in speech, but leaving the code here in case I want to re-enable it later
+
+  // if (!lastJamo || !firstJamo) continue;
+
+  // var plainToFortis = {
+  //   "ㄱ": "ㄲ", "ㄷ": "ㄸ", "ㅂ": "ㅃ", "ㅅ": "ㅆ", "ㅈ": "ㅉ"
+  // };
+  // var stopSet = {
+  //   "ㄱ":1, "ㄲ":1, "ㅋ":1, "ㄳ":1, "ㄺ":1,
+  //   "ㄷ":1, "ㄸ":1, "ㅌ":1,
+  //   "ㅂ":1, "ㅃ":1, "ㅍ":1, "ㅄ":1, "ㄿ":1,
+  //   "ㅅ":1, "ㅆ":1,
+  //   "ㅈ":1, "ㅉ":1, "ㅊ":1,
+  //   "ㅎ":1
+  // };
+
+
+  // var skipTensification = (lastTok.fromComplexCoda === true) || 
+  //                         (firstTok.fromLiaison === true);
+
+  //   if (!skipTensification && stopSet[lastJamo] && plainToFortis[firstJamo]) {
+  //     var newJamo = plainToFortis[firstJamo];
+  //     var newPhonemes = getPhoneme(newJamo, "initial");
+  //     if (newPhonemes.length > 0) {
+  //       firstTok.token = newPhonemes[0];
+  //       firstTok.jamo  = newJamo;
+  //       for (var ti = 1; ti < newPhonemes.length; ti++) {
+  //         next.tokens.splice(ti, 0, { token: newPhonemes[ti], role: "initial", jamo: newJamo });
+  //       }
+  //     }
+  //   }
   }
-}
+  }
 
 // ─── Two‑pass processing for liaison ─────────────────────────
 function processNotesWithLiaison(notes, hieutDeletion, eoVowel) {
@@ -393,7 +405,9 @@ function processNotesWithLiaison(notes, hieutDeletion, eoVowel) {
       if (stayPhonemes.length > 0) {
         lastTok.token = stayPhonemes[0];
         lastTok.jamo  = cl.stay;
+        lastTok.fromComplexCoda = true;  // Prevents tensification on the stay consonant
       }
+
       var movePhonemes = getPhoneme(cl.move, "initial");
       for (var ti = movePhonemes.length - 1; ti >= 0; ti--) {
         next.tokens.unshift({ token: movePhonemes[ti], role: "initial", jamo: cl.move });
@@ -421,7 +435,7 @@ function processNotesWithLiaison(notes, hieutDeletion, eoVowel) {
     else initialTokens = [lastTok.token];
 
     for (var ti = initialTokens.length - 1; ti >= 0; ti--) {
-      next.tokens.unshift({ token: initialTokens[ti], role: "initial", jamo: jamo });
+      next.tokens.unshift({ token: initialTokens[ti], role: "initial", jamo: jamo, fromLiaison: true});
     }
     curr.tokens.pop();
   }
@@ -455,7 +469,7 @@ function processNotesWithLiaison(notes, hieutDeletion, eoVowel) {
       }
     }
 
-    // Apply user's chosen eo vowel (A or 7) — covers ㅓ, ㅕ, ㅝ
+    // Apply user's chosen eo vowel (A or 7). Covers ㅓ, ㅕ, ㅝ before the string assembly loop since some rules depend on identifying these vowels
     applyEoVowel(tokens, eoVowel);
 
     // Assemble phoneme string
@@ -632,5 +646,3 @@ if (notes.length === 0) {
     });
   });
 }
-
-
