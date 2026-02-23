@@ -13,6 +13,7 @@ Demo:<br>
 - Liaison (연음) with complex coda splitting
 - Nasalization, aspiration, and tensification between notes
 - Glide-blocking on liaison
+- Handles cases like "없어" and "독립" properly.
 - Empirically tuned vowel mappings (like `j A` for ㅕ, `t yE` for 돼) that sound more natural than phonetically "correct" ones
 - Automatic per-phoneme duration and strength attributes
 - Optional hieut (ㅎ) deletion between sonorants
