@@ -13,7 +13,7 @@ Demo:<br>
 - Liaison (연음) with complex coda splitting
 - Nasalization, aspiration, and tensification between notes
 - Glide-blocking on liaison
-- Handles cases like "없어" (eobs-eo → eob-seo, correct liaison of complex coda ㅄ), "독립" (dog-lib → dong-nip, ㄹ nasalization), and "않아" (an-ha → a-na, ㅎ deletion after nasal). 
+- Handles cases like "없어" (eobs-eo → 업서 eob-seo, correct liaison of complex coda ㅄ), "독립" (dog-lib → 동닙 dong-nip, ㄹ nasalization), and "않아" (an-ha → 아나 a-na, ㅎ deletion after nasal). 
 - Empirically tuned vowel mappings (like `j A` for ㅕ, `t yE` for 돼) that sound more natural than phonetically "correct" ones
 - Automatic per-phoneme duration and strength attributes
 - Optional hieut (ㅎ) deletion between sonorants
