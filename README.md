@@ -6,7 +6,8 @@ Testing has shown better rythmic and smoothness results than SynthV 2's native K
  - Deterministic Liaison: Unlike SV2, which uses simple block based construction, this script forces resyllabification, ensuring fast and accurate transitions.
 <br>
 Demo:<br>
-https://youtu.be/coK8p-KVqIM
+https://youtu.be/coK8p-KVqIM (Short)<br>
+https://www.youtube.com/watch?v=tOdtoD5aAjk (Cover)
 
 ## Requirements
 - Synthesizer V Studio 1.11.0 or later
