@@ -6,7 +6,7 @@ Testing has shown better rythmic and smoothness results than SynthV 2's native K
  - Deterministic Liaison: Unlike SV2, which "guesses" how to link notes, your script forces resyllabification, ensuring zero-latency transitions in fast passages.
 <br>
 Demo:<br>
-[![Watch the Demo](https://img.youtube.com/vi/coK8p-KVqIM/0.jpg)](https://youtu.be/coK8p-KVqIM)
+https://youtu.be/coK8p-KVqIM
 
 ## Requirements
 - Synthesizer V Studio 1.11.0 or later
