@@ -1,5 +1,6 @@
 # SynthV-1-Hangul-to-Phonemes
 A script to convert Korean Hangul lyrics into Mandarin X-SAMPA phonemes in Synthesizer V Studio 1.<br>
+Testing has shown better rythmic and smoothness results than SynthV 2's native Korean.<br>
 <br>
 Demo:<br>
 [![Watch the Demo](https://img.youtube.com/vi/coK8p-KVqIM/0.jpg)](https://youtu.be/coK8p-KVqIM)
