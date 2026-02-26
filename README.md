@@ -10,6 +10,10 @@ Demo:<br>
 https://youtu.be/coK8p-KVqIM (Short)<br>
 https://www.youtube.com/watch?v=tOdtoD5aAjk (Cover)
 
+### The "꽃잎" test
+Version 1.3 of this script will correctly output [k o n] [n i p] (kkon-nip).<br>
+Older versions will incorrectly output [k o t] [ts\h i p] (ko-chip).<br>
+
 ## Requirements
 - Synthesizer V Studio 1.11.0 or later
 - A Mandarin Chinese voicebank (native Mandarin will sound significantly better, but any voicebank will work)
